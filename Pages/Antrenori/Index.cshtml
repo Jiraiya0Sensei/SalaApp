@@ -1,0 +1,50 @@
+﻿@page
+@model SalaApp.Pages.Antrenori.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Antrenorii</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Antrenor[0].Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Antrenor[0].Telefon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Antrenor[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Antrenor[0].Sport.Denumire)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Antrenor) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sport.Denumire)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+             </td>
+        </tr>
+}
+    </tbody>
+</table>

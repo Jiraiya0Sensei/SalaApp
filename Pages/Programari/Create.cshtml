@@ -1,0 +1,54 @@
+﻿@page
+@model SalaApp.Pages.Programari.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Programare</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Programare.ClientID" class="control-label">Nume Client</label>
+                <select asp-for="Programare.ClientID" class ="form-control" asp-items="ViewBag.ClientID"></select>
+                <option value="">Selectați clientul</option>
+            </div>
+            <div class="form-group">
+                <label asp-for="Programare.AntrenorID" class="control-label">Nume Antrenor</label>
+                <select asp-for="Programare.AntrenorID" class ="form-control" asp-items="ViewBag.AntrenorID"></select>
+                <option value="">Selectați antrenorul</option>
+            </div>
+            <div class="form-group">
+                <label asp-for="Programare.Data" class="control-label"></label>
+                <input asp-for="Programare.Data" class="form-control" />
+                <span asp-validation-for="Programare.Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Programare.Ora_inceput" class="control-label"></label>
+                <input asp-for="Programare.Ora_inceput" class="form-control" />
+                <span asp-validation-for="Programare.Ora_inceput" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Programare.Ora_sfarsit" class="control-label"></label>
+                <input asp-for="Programare.Ora_sfarsit" class="form-control" />
+                <span asp-validation-for="Programare.Ora_sfarsit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

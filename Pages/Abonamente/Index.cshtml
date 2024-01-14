@@ -1,0 +1,60 @@
+﻿@page
+@model SalaApp.Pages.Abonamente.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Abonamente</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Abonament[0].Client.NumeClient)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Abonament[0].Sport.Denumire)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Abonament[0].Data_inceput)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Abonament[0].Data_expirare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Abonament[0].Pret)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Abonament) {
+        <tr>
+           <td>
+                @Html.DisplayFor(modelItem => item.Client.NumeClient)
+           </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sport.Denumire)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data_inceput)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data_expirare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pret)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
